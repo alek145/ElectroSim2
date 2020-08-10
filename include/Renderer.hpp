@@ -1,3 +1,6 @@
+#ifndef RENDERER_HPP
+#define RENDERER_HPP
+
 #include <VertexArray.hpp>
 #include <IndexBuffer.hpp>
 #include <Shader.hpp>
@@ -11,3 +14,5 @@ public:
 	void Clear();
 
 };
+
+#endif

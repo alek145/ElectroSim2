@@ -1,9 +1,9 @@
-#include <vector>
+#ifndef VERTEXBUFFERLAYOUT_HPP
+#define VERTEXBUFFERLAYOUT_HPP
+
 #define GLEW_STATIC
-
+#include <vector>
 #include <GL/glew.h>
-
-
 
 struct VertexBufferElement {
 	unsigned int type;
@@ -51,3 +51,5 @@ public:
 
 
 };
+
+#endif

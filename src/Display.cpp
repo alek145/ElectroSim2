@@ -1,8 +1,5 @@
 #include <Display.hpp>
-#include <ElectroSim/OpenGLError.hpp>
-
-
-
+#include <OpenGLError.hpp>
 
 Display::Display(std::string title) : mTitle(title){
 

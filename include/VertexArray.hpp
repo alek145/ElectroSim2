@@ -1,3 +1,6 @@
+#ifndef VERTEXARRAY_HPP
+#define VERTEXARRAY_HPP
+
 #define GLEW_STATIC
 #include <GL/glew.h>
 #include <VertexBufferLayout.hpp>
@@ -17,3 +20,5 @@ void Unbind() const;
 
 void AddBuffer(const VertexBuffer& vb,const VertexBufferLayout& layout);
 };
+
+#endif

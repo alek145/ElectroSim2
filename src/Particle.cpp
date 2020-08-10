@@ -52,7 +52,16 @@ void Particle::applyForces(Particle& p) {
 
 
 	// Particles are inside of eachother
-	//if (dist < (mRadius + p.mRadius)) return;
+	if (dist < (mRadius + p.mRadius)) return;
+
+	double force = K * mCharge * p.mCharge / (dist * dist);
+
+	// Apply force to self and target particle
+	mAccX += dx / dist * (force / mMass);
+	mAccY += dy / dist * (force / mMass);
+	p.mAccX -= dx / dist * (force / p.mMass);
+	p.mAccY -= dy / dist * (force / p.mMass);
+
 }
 
 // Calculate and apply collisions between self and another Particle
@@ -106,15 +115,6 @@ bool Particle::contains(double x, double y){
 }
 
 void Particle::tick(double deltaTimeS, double delX, double delY) {
-	if(mHeld) {
-		mX = delX + mGrabX;
-		mY = delY + mGrabY;
-		mVelX = 0;
-		mVelY = 0;
-		mAccX = 0;
-		mAccY = 0;
-		return;
-	}
 	mAccX -= mVelX * FRICTION;
 	mAccY -= mVelY * FRICTION;
 	mVelX += mAccX * deltaTimeS;

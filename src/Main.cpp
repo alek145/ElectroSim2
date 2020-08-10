@@ -1,7 +1,5 @@
 #define GLEW_STATIC
 
-
-
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 #include <iostream>
@@ -12,34 +10,21 @@
 #include <Renderer.hpp>
 #include <Handler.hpp>
 #include <InputHandler.hpp>
-#include <OpenGLError.hpp>
 #include <glm/glm.hpp>
 #include <Utils.hpp>
 #include <Display.hpp>
-
-
-
-
-
-
-
-
-
 
 int main(void) {
 	utils::seed();
 
 	Display display("ElectroSim2");
-	Handler handler;
-	InputHandler inHandler(display.getWindow(), display.getProj(), display.getView());
-
 	GLFWwindow* window = display.getWindow();
 	glm::mat4* proj = display.getProj();
 	glm::mat4* view = display.getView();
 	glm::mat4 mvp;
 
-
-
+	Handler handler;
+	InputHandler inHandler(window, proj, view);
 
 	//Spawn Particles in random Locations w/ Random Charges
 	for(int i = 0; i <100; i++ ) {

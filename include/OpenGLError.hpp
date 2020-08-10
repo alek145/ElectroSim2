@@ -1,16 +1,8 @@
 #ifndef OPENGLERROR_HPP
 #define OPENGLERROR_HPP
 
-
 #include <iostream>
 #include <Constants.hpp>
-
-
-
-
-
-
-
 
 void GLAPIENTRY MessageCallback(
 	GLenum source,
@@ -69,9 +61,6 @@ void GLAPIENTRY MessageCallback(
 	// if (severity != GL_DEBUG_SEVERITY_NOTIFICATION){
 	// 	fprintf( stderr, "GL CALLBACK: %s type = 0x%x, severity = 0x%x, message = %s, \n", ( type == GL_DEBUG_TYPE_ERROR ? "** GL ERROR **" : "" ), type, severity, message );
 	// }
-
-
-}
-
+};
 
 #endif
