@@ -1,6 +1,6 @@
-#include <ElectroSim/VertexArray.hpp>
-#include <ElectroSim/IndexBuffer.hpp>
-#include <ElectroSim/Shader.hpp>
+#include <VertexArray.hpp>
+#include <IndexBuffer.hpp>
+#include <Shader.hpp>
 
 
 class Renderer{

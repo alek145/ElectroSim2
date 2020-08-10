@@ -1,6 +1,6 @@
 #define GLEW_STATIC
-#include <ElectroSim/IndexBuffer.hpp>
-#include <ElectroSim/Constants.hpp>
+#include <IndexBuffer.hpp>
+#include <Constants.hpp>
 #include <GL/glew.h>
 #include <iostream>
 

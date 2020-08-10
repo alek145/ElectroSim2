@@ -1,7 +1,5 @@
-
-
-
-
+#ifndef OPENGLERROR_HPP
+#define OPENGLERROR_HPP
 
 void GLAPIENTRY MessageCallback(
 	GLenum source,
@@ -63,3 +61,4 @@ void GLAPIENTRY MessageCallback(
 
 
 }
+#endif

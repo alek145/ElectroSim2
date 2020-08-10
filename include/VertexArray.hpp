@@ -1,7 +1,7 @@
 #define GLEW_STATIC
 #include <GL/glew.h>
-#include <ElectroSim/VertexBufferLayout.hpp>
-#include <ElectroSim/VertexBuffer.hpp>
+#include <VertexBufferLayout.hpp>
+#include <VertexBuffer.hpp>
 
 
 class VertexArray {

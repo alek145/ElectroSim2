@@ -2,7 +2,7 @@
 #include <string>
 #include <iostream>
 #include <GL/glew.h>
-#include <ElectroSim/Shader.hpp>
+#include <Shader.hpp>
 
 
 Shader::Shader(const std::string& vertexShaderFilePath,const std::string& fragmentShaderFilePath) : mRendererID(0){

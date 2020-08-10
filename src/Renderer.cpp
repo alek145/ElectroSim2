@@ -1,4 +1,4 @@
-#include <ElectroSim/Renderer.hpp>
+#include <Renderer.hpp>
 #include <iostream>
 
 void Renderer::Draw(const VertexArray& va, const IndexBuffer& ib,const Shader& shader) const {

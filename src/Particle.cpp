@@ -1,7 +1,4 @@
-#include <ElectroSim/Particle.hpp>
-
-
-
+#include <Particle.hpp>
 
 // Constructor
 Particle::Particle(float x, float y, float radius,float charge) {
@@ -56,18 +53,10 @@ void Particle::applyForces(Particle& p) {
 
 	// Particles are inside of eachother
 	//if (dist < (mRadius + p.mRadius)) return;
-
-	double force = K * mCharge * p.mCharge / (dist * dist);
-
-	// Apply force to self and target particle
-	mAccX += dx / dist * (force / mMass);
-	mAccY += dy / dist * (force / mMass);
-	p.mAccX -= dx / dist * (force / p.mMass);
-	p.mAccY -= dy / dist * (force / p.mMass);
 }
 
 // Calculate and apply collisions between self and another Particle
-void Particle::collide(Particle& p,bool staticCollideOnly) {
+void Particle::collide(Particle& p) {
 	// Figure out distance between particles
 	float dx = mX - p.mX;
 	float dy = mY - p.mY;
@@ -89,11 +78,6 @@ void Particle::collide(Particle& p,bool staticCollideOnly) {
 	mY -= yOff;
 	p.mX += xOff;
 	p.mY += yOff;
-
-
-	if(staticCollideOnly) {
-		return;
-	}
 
 	//Do dynamic collisions
 	dx = mX - p.mX;
@@ -121,8 +105,16 @@ bool Particle::contains(double x, double y){
 	return ((mX-x) * (mX-x) + (mY-y) * (mY-y) < (mRadius * mRadius));
 }
 
-void Particle::tick(double deltaTimeS) {
-	//std::cout << "charge " << mCharge << std::endl;
+void Particle::tick(double deltaTimeS, double delX, double delY) {
+	if(mHeld) {
+		mX = delX + mGrabX;
+		mY = delY + mGrabY;
+		mVelX = 0;
+		mVelY = 0;
+		mAccX = 0;
+		mAccY = 0;
+		return;
+	}
 	mAccX -= mVelX * FRICTION;
 	mAccY -= mVelY * FRICTION;
 	mVelX += mAccX * deltaTimeS;
@@ -131,20 +123,4 @@ void Particle::tick(double deltaTimeS) {
 	mY += mVelY * deltaTimeS;
 	mAccX = 0;
 	mAccY = 0;
-}
-
-void Particle::tick(double delX, double delY){
-	mX = delX + mGrabX;
-	mY = delY + mGrabY;
-	mVelX = 0;
-	mVelY = 0;
-	mAccX = 0;
-	mAccY = 0;
-
-
-}
-
-// Test function until implementation of graphics
-void Particle::test() {
-	std::cout << "X: " << mX << " " << mVelX << " " << mAccX << "\n" << "Y: " << mY << " " << mVelY << " " << mAccY << "\n\n";
 }

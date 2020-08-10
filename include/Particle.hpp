@@ -3,7 +3,7 @@
 
 #include <iostream>
 #include <cmath>
-#include <ElectroSim/Constants.hpp>
+#include <Constants.hpp>
 
 
 class Particle {
@@ -21,13 +21,9 @@ Particle(const Particle& p);
 ~Particle() {
 };
 void applyForces(Particle& p);
-void collide(Particle& p,bool staticCollideOnl);
+void collide(Particle& p);
 bool contains(double x, double y);
-
-//virtual void render() = 0;
-void tick(double deltaTimeS);
-void tick(double delX, double delY);
-void test();
+void tick(double deltaTimeS, double delX, double delY);
 };
 
 #endif // ifndef PARTICLE_HPP

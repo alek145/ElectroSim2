@@ -12,11 +12,11 @@
 #include <nano/nano.hpp>
 #include <stdio.h>
 #include <stdlib.h>
-#include <ElectroSim/Shader.hpp>
-#include <ElectroSim/Renderer.hpp>
-#include <ElectroSim/Handler.hpp>
-#include <ElectroSim/InputHandler.hpp>
-#include <ElectroSim/OpenGLError.hpp>
+#include <Shader.hpp>
+#include <Renderer.hpp>
+#include <Handler.hpp>
+#include <InputHandler.hpp>
+#include <OpenGLError.hpp>
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 
@@ -133,7 +133,7 @@ int main(void) {
 
 
 
-	InputHandler inHandler(window, &handler, &proj, &view);
+	InputHandler inHandler(window, &proj, &view);
 
 
 
@@ -220,12 +220,12 @@ int main(void) {
 
 		//Draw Select Box
 		if(inHandler.isSelecting()) {
-			points = inHandler.getSelectedArea();
-			Sib.SetIndices(square,6);
-			Svb.SetPoints((void*)points,sizeof(float) * 6 * 4);
-			renderer.Draw(Sva,Sib,shader);
-
-			free(points);
+			// points = inHandler.getSelectedArea();
+			// Sib.SetIndices(square,6);
+			// Svb.SetPoints((void*)points,sizeof(float) * 6 * 4);
+			// renderer.Draw(Sva,Sib,shader);
+			//
+			// free(points);
 		}
 
 

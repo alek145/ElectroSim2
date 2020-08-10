@@ -1,4 +1,4 @@
-#include <ElectroSim/Handler.hpp>
+#include <Handler.hpp>
 
 Handler::Handler(){
 	int index = 0;
@@ -101,7 +101,7 @@ void Handler::selectArea(glm::vec2 start, glm::vec2 end){
 	}
 }
 
-bool Handler::grabParticles(double xPos, double yPos){
+bool Handler::grabParticle(double xPos, double yPos){
 	for(int i = 0; i < mParticles.size(); i++) {
 		if(mParticles[i].contains(xPos, yPos)) {
 			mHolding = true;
@@ -137,10 +137,9 @@ void Handler::setDelta(double delX, double delY){
 void Handler::tick(double deltaTimeS){
 	for( int j = 0; j < mParticles.size(); j++) {
 		for( int i = j+1; i < mParticles.size(); i++) {
-			mParticles[i].collide(mParticles[j],false);
+			mParticles[i].collide(mParticles[j]);
 			mParticles[i].applyForces(mParticles[j]);
 		}
-		if(mParticles[j].mHeld) mParticles[j].tick(mDelX, mDelY);
-		else mParticles[j].tick(deltaTimeS);
+		mParticles[j].tick(deltaTimeS, mDelX, mDelY);
 	}
 }

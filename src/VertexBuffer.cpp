@@ -1,6 +1,6 @@
 #define GLEW_STATIC
-#include <ElectroSim/VertexBuffer.hpp>
-#include <ElectroSim/Constants.hpp>
+#include <VertexBuffer.hpp>
+#include <Constants.hpp>
 #include <GL/glew.h>
 #include <stdlib.h>
 #include <iostream>

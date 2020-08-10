@@ -1,5 +1,5 @@
-#include <ElectroSim/VertexBuffer.hpp>
-#include <ElectroSim/VertexArray.hpp>
+#include <VertexBuffer.hpp>
+#include <VertexArray.hpp>
 
 
 

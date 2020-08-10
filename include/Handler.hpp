@@ -3,7 +3,7 @@
 
 #include <vector>
 #include <algorithm>
-#include <ElectroSim/Particle.hpp>
+#include <Particle.hpp>
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 
@@ -21,13 +21,13 @@ double mDelY = 0;
 Handler();
 float* getPoints();
 unsigned int* getIndices();
-void addParticle(Particle p);
-void removeParticle();
 unsigned int getNumInd();
 unsigned int getNumPoints();
+void addParticle(Particle p);
+void removeParticle();
 void addVelall();
 void selectArea(glm::vec2 start, glm::vec2 end);
-bool grabParticles(double xPos, double yPos);
+bool grabParticle(double xPos, double yPos);
 void releaseParticles();
 void deleteHeld();
 void setDelta(double delX, double delY);
